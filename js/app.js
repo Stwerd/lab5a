@@ -90,11 +90,11 @@ function sumArray(sumArr) { //eslint-disable-line
   let message = ` was passed in as an array of numbers, and ${arraySum} is their sum.`;
   let numbers = '';
   for (let z = 0; z < sumArr.length; z++) {
-    if (z != 2) {
-      numbers += `${sumArr[z]},`;
-    }
-    else {
+    if (z === sumArr.length - 1) {
       numbers += `${sumArr[z]}`;
+    }
+    else if (z !== sumArr.length) {
+      numbers += `${sumArr[z]},`;
     }
   }
   message = numbers + message;
@@ -118,11 +118,27 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+  let arrayTimes = 1;
+  for (let i = 0; i < multArr.length; i++) {
+    arrayTimes = multiply(arrayTimes, multArr[i])[0];
+  }
+  let message = ` have a product of ${arrayTimes}.`;
+  let numbers = '';
+  for (let z = 0; z < multArr.length; z++) {
+    if (z === multArr.length - 1) {
+      numbers += `${multArr[z]}`;
+    }
+    else if (z !== multArr.length) {
+      numbers += `${multArr[z]},`;
+    }
+  }
+  message = 'The numbers ' + numbers + message;
+  let arr = [arrayTimes, message];
+  return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
